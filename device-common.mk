@@ -24,10 +24,23 @@ PRODUCT_PLATFORM := sdm845
 include device/google/crosshatch/device.mk
 
 # Ship GCam
-$(call inherit-product, vendor/Camera/b1c1/config.mk)
+#$(call inherit-product, vendor/Camera/b1c1/config.mk)
 
-# Target now uses mini_gapps
-TARGET_USES_MINI_GAPPS := true
+# GMS 
+WITH_GMS := true
+TARGET_CORE_GMS := false
+TARGET_INCLUDE_GOOGLE_DIALER := true
+TARGET_DEFAULT_PIXEL_LAUNCHER := false
+TARGET_CORE_GMS_EXTRAS := false
+BOARD_EXT4_SHARE_DUP_BLOCKS := true
+
+# RISING STUFF
+RISING_MAINTAINER=lumax
+
+# Ship Basic Call Recorder
+TARGET_PREBUILT_BCR := true
+
+TARGET_ENABLE_BLUR := true
 
 # Audio fluence, ns, aec property, voice volume steps
 PRODUCT_PROPERTY_OVERRIDES += \
